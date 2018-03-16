@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycanvas" style="border:1px solid #ccc;"></canvas>
+</body>
+<script>
+    //window.onload  = draw();
+    function draw() {
+        var canvas = document.getElementById('mycanvas');
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(0, 0);
+        //填充颜色
+        context.fillStyle = '#A7DBD7';
+        //阴影
+        context.shadowColor = 'rgba(204, 204, 204, 0.5)';
+        context.shadowOffsetX = 10;
+        context.shadowOffsetY = 9;
+        context.shadowBlue = 2;
+        context.fillRect(100, 100, 50, 200);
+        context.closePath();
+    }
+    //下面用鼠标画
+    var canvas = document.getElementById('mycanvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = 800;
+    canvas.height = 600;
+    ctx.fillStyle = '#A7DBD7';
+    var drag = false;
+    var rect = {};
+    function mousedown(e) {
+        rect.startX = e.pageX - this.offsetLeft;
+        rect.startY = e.pageY - this.offsetTop;
+        drag = true;
+    }
+    function mousemove(e) {
+        if (drag) {
+            rect.w = (e.pageX - this.offsetLeft) - rect.startX;
+            rect.h = (e.pageY - this.offsetTop) - rect.startY;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
+
+        }
+    }
+    function mouseup() {
+        drag = false;
+    }
+    canvas.addEventListener('mousedown', mousedown, true);
+    canvas.addEventListener('mousemove', mousemove, true);
+    canvas.addEventListener('mouseup', mouseup, true);
+</script>
+
+</html>

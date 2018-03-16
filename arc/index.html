@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mycanvs"></canvas>
+</body>
+<script>
+    window.onload = draw();
+    function draw(){
+        var canvas = document.getElementById('mycanvs');
+        canvas.width = 600;
+        canvas.height = 400;
+        var context = canvas.getContext('2d');
+        context.beginPath();
+        context.fillStyle="#A7DBD7";
+        context.shadowColor='rgba(255,124,22,0.3)';
+        context.shadowOffsetX=50;
+        context.shadowOffsetY=50;
+        context.shadowBlur=2;
+        //画圆 x,y,radius,startAngle,endAngle
+        context.arc(200,200,100,0,Math.PI*2,true);
+        context.fill();
+        context.closePath();
+    }
+</script>
+</html>
