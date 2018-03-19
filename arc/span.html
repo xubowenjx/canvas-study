@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mycanvas" style="background-color:green;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('mycanvas');
+    canvas.width = 800;
+    canvas.height = 600;
+    var context = canvas.getContext('2d');
+    context.lineWidth = 10;
+    context.beginPath();
+    context.fillStyle='#000';
+    context.arc(200,200,100,-0.5*Math.PI,0.5*Math.PI,false);
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.fillStyle='#fff';
+    context.arc(200,200,100,0.5*Math.PI,1.5*Math.PI,false);//false 顺时针
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.fillStyle='#000';
+    context.arc(200,150,50,0.5*Math.PI,1.5*Math.PI,false);//false 顺时针
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.fillStyle='#fff';
+    context.arc(200,250,50,0.5*Math.PI,1.5*Math.PI,true);//false 顺时针
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.fillStyle='#000';
+    context.arc(200,250,10,0,2*Math.PI,true);//false 顺时针
+    context.fill();
+    context.closePath();
+    context.beginPath();
+    context.fillStyle='#FFF';
+    context.arc(200,150,10,0,2*Math.PI,true);//false 顺时针
+    context.fill();
+    context.closePath();
+</script>
+</html>
