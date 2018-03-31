@@ -1,0 +1,34 @@
+<!--canvas 载入图片-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="xubowen">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+<script>
+    window.onload = draw();
+    function draw() {
+        var canvas = document.getElementById('mycanvas');
+        canvas.width = 840;
+        canvas.height = 600;
+        var context = canvas.getContext('2d');
+        var img = new Image();
+        img.src = 'Marblecoat-Blue.jpg';
+        img.onload = function () {
+            
+            context.drawImage(img, 0,0,840,600);
+           // context.fillStyle = pattern;
+           // context.fillRect(0, 0, 840, 600);
+        }
+    }
+</script>
+
+</html>
